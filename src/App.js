@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import MainPage from "./components/MainPage";
+import TechAwards from "./components/TechAwards";
+import Clients from "./components/Clients";
+import Footer from "./components/Footer";
+
+import { useSpring, animated } from "react-spring";
 
 function App() {
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <animated.div style={props}>
+        <MainPage />
+        <TechAwards />
+        <Clients />
+        <Footer />
+      </animated.div>
     </div>
   );
 }

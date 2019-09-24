@@ -1,0 +1,65 @@
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+// Create mixin
+@mixin breakpoint($breakpoint, $breakpoints: $breakpoints) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+.sectionl {
+  height: auto;
+  color: #6d6d6d;
+
+  @include breakpoint("sm") {
+    height: 100vh;
+  }
+}
+.sub-head {
+  text-align: center;
+  padding: 1em;
+  margin-top: 20px;
+  letter-spacing: 1.2px;
+}
+
+.header {
+  text-align: center;
+  font-size: 25px;
+
+  line-height: 1.5;
+  @include breakpoint("sm") {
+    width: 40%;
+    line-height: 2;
+  }
+
+  &_con {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.brand_con {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  grid-column-gap: 10px;
+  grid-row: 10px;
+
+  @include breakpoint("sm") {
+    padding: 2em 10em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100%;
+  }
+}

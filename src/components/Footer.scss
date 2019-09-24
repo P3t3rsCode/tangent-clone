@@ -1,0 +1,109 @@
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+// Create mixin
+@mixin breakpoint($breakpoint, $breakpoints: $breakpoints) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+.sectionF {
+  height: auto;
+
+  @include breakpoint("sm") {
+    height: 50vh;
+  }
+}
+.footer {
+  background-color: rgb(17, 18, 40);
+  color: rgb(128, 128, 128);
+  padding-top: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include breakpoint("sm") {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.left {
+  margin: 0 5px;
+  @include breakpoint("sm") {
+    margin: 0 10em;
+    width: 55%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    div {
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      font-size: 1rem;
+
+      margin-bottom: 2px;
+      line-height: 2.5;
+      letter-spacing: 2px;
+
+      &:hover {
+        border-bottom: 1px solid rgb(0, 199, 149);
+        transition: all 0.4s ease 0s;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.right {
+  width: 100%;
+
+  .header_text {
+    color: rgb(0, 199, 149);
+    padding: 1em;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin: 0 0 1em 0;
+  }
+
+  input {
+    padding: 1em;
+    border: 1px solid rgb(0, 199, 149);
+    background: transparent;
+    color: white;
+    margin: 2em;
+    width: 60%;
+  }
+  p {
+    width: 60%;
+    margin: 0 2em;
+  }
+}
+
+.locations {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+
+.location {
+  padding: 30px 30px 0 0;
+  p {
+    color: rgb(0, 199, 149);
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+  }
+  span {
+    font-size: 0.9rem;
+  }
+  div {
+    font-weight: 600;
+
+    margin-top: 1em;
+  }
+}

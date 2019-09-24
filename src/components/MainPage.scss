@@ -1,0 +1,79 @@
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+// Create mixin
+@mixin breakpoint($breakpoint, $breakpoints: $breakpoints) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+.logo {
+  width: 100px;
+  padding: 1em;
+
+  @include breakpoint("sm") {
+    width: 138px;
+    padding: 2em;
+  }
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  margin-top: 5em;
+  &-header {
+    margin: 1em;
+    @include breakpoint("sm") {
+      width: 48%;
+      margin: 0 12em;
+    }
+
+    .title {
+      font-size: 50px;
+      letter-spacing: 1px;
+      margin: 0.5em 0;
+    }
+    .text {
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    button {
+      text-transform: capitalize;
+      border: 1px solid gray;
+      padding: 1em 0.5em;
+      background: transparent;
+
+      margin-top: 2em;
+      @include breakpoint("sm") {
+        width: 40%;
+      }
+
+      &:hover {
+        color: white;
+        background: #46af83;
+        border: 1px solid white;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.section {
+  height: 100vh;
+}
+
+.bg2 {
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10em 0em;
+
+  button {
+    color: white;
+  }
+}
